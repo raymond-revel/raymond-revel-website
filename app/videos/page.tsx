@@ -7,6 +7,7 @@ import { getTikTokVideos } from '@/lib/tiktok';
 import { getInstagramReels } from '@/lib/instagram';
 import { tiktokVideos, instagramReels } from '@/lib/videos';
 
+
 // YouTube Videos Component
 function YouTubeSection() {
   const [videos, setVideos] = useState<any[]>([]);
@@ -193,19 +194,8 @@ function InstagramReelsSection() {
       }
     }
     loadReels();
-
-    // Load Instagram embed script
-    const script = document.createElement('script');
-    script.src = '//www.instagram.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
   }, []);
+
 
   if (loading) {
     return (
@@ -238,45 +228,34 @@ function InstagramReelsSection() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {reels.map((reel, index) => {
-          // Extract reel ID from Instagram URL
+          // Extract reel ID and type from Instagram URL
           const reelIdMatch = reel.url.match(/\/(reel|p)\/([A-Za-z0-9_-]+)/);
+          const reelType = reelIdMatch ? reelIdMatch[1] : 'reel';
           const reelId = reelIdMatch ? reelIdMatch[2] : reel.id;
+
+          if (!reelId) return null;
+
+          // Use iframe embed for Instagram Reels (more reliable than blockquote)
+          // For /p/ posts, use /p/embed/, for /reel/ use /reel/embed/
+          const embedUrl = `https://www.instagram.com/${reelType}/${reelId}/embed/`;
 
           return (
             <div key={reel.id || index} className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={reel.url}
-                data-instgrm-version="14"
+              <iframe
+                src={embedUrl}
+                width="100%"
+                height="600"
                 style={{
-                  background: '#FFF',
                   border: '0',
-                  borderRadius: '3px',
-                  margin: '1px',
-                  maxWidth: '100%',
-                  minWidth: '326px',
-                  padding: '0',
-                  width: '99.375%',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
                 }}
-              >
-                <div style={{ padding: '16px' }}>
-                  <a
-                    href={reel.url}
-                    style={{
-                      background: '#FFFFFF',
-                      lineHeight: '0',
-                      padding: '0 0',
-                      textAlign: 'center',
-                      textDecoration: 'none',
-                      width: '100%',
-                    }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View on Instagram
-                  </a>
-                </div>
-              </blockquote>
+                scrolling="no"
+                allowTransparency={true}
+                allowFullScreen={true}
+                frameBorder="0"
+                title={`Instagram ${reelType === 'reel' ? 'Reel' : 'Post'} ${index + 1}`}
+              />
             </div>
           );
         })}
