@@ -4,9 +4,10 @@ interface MusicPlayerProps {
   title: string;
   album?: string;
   year?: string;
+  type?: 'album' | 'single' | 'ep';
 }
 
-export default function MusicPlayer({ spotifyId, appleMusicId, title, album, year }: MusicPlayerProps) {
+export default function MusicPlayer({ spotifyId, appleMusicId, title, album, year, type }: MusicPlayerProps) {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 mb-6">
       <div className="mb-4">
@@ -21,9 +22,9 @@ export default function MusicPlayer({ spotifyId, appleMusicId, title, album, yea
           <div>
             <iframe
               style={{ borderRadius: '12px' }}
-              src={`https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator`}
+              src={`https://open.spotify.com/embed/${type === 'album' ? 'album' : 'track'}/${spotifyId}?utm_source=generator`}
               width="100%"
-              height="152"
+              height={type === 'album' ? '352' : '152'}
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
@@ -32,7 +33,7 @@ export default function MusicPlayer({ spotifyId, appleMusicId, title, album, yea
           </div>
         )}
         
-        {appleMusicId && (
+        {appleMusicId && type !== 'single' && (
           <div>
             <iframe
               allow="autoplay *; encrypted-media *;"
@@ -50,7 +51,7 @@ export default function MusicPlayer({ spotifyId, appleMusicId, title, album, yea
       <div className="mt-4 flex gap-4">
         {spotifyId && (
           <a
-            href={`https://open.spotify.com/track/${spotifyId}`}
+            href={`https://open.spotify.com/${type === 'album' ? 'album' : 'track'}/${spotifyId}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-green-600 dark:text-green-400 hover:underline"
@@ -60,7 +61,7 @@ export default function MusicPlayer({ spotifyId, appleMusicId, title, album, yea
         )}
         {appleMusicId && (
           <a
-            href={`https://music.apple.com/us/album/${appleMusicId}`}
+            href={`https://music.apple.com/us/${type === 'single' ? 'song' : 'album'}/${appleMusicId}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-pink-600 dark:text-pink-400 hover:underline"

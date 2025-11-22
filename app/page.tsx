@@ -9,7 +9,7 @@ import HeroBackground from '@/components/HeroBackground';
 
 export default function Home() {
   const latestPosts = getAllPosts().slice(0, 3);
-  const latestRelease = discography.find(album => album.spotifyId || album.appleMusicId) || discography[0];
+  const latestRelease = discography.find(album => album.title === 'November In Me');
 
   return (
     <div className="min-h-screen">
@@ -61,6 +61,7 @@ export default function Home() {
                 title={latestRelease.title}
                 album={latestRelease.type === 'album' ? latestRelease.title : undefined}
                 year={latestRelease.year}
+                type={latestRelease.type}
               />
             </div>
           </div>
@@ -197,6 +198,22 @@ export default function Home() {
               className="px-6 py-3 bg-red-600 rounded-full font-semibold hover:bg-red-700 transition-colors"
             >
               YouTube
+            </a>
+            <a
+              href="https://tiktok.com/@raymondrevel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-black rounded-full font-semibold hover:bg-gray-800 transition-colors"
+            >
+              TikTok
+            </a>
+            <a
+              href="https://music.apple.com/us/artist/raymond-revel/1020816843"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-pink-600 rounded-full font-semibold hover:bg-pink-700 transition-colors"
+            >
+              Apple Music
             </a>
           </div>
         </div>

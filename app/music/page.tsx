@@ -104,6 +104,7 @@ export default function Music() {
                         title={release.title}
                         album={release.type === 'album' ? release.title : undefined}
                         year={release.year}
+                        type={release.type}
                       />
                     </div>
                   ) : null}
@@ -127,6 +128,7 @@ export default function Music() {
                     title={album.title}
                     album={album.title}
                     year={album.year}
+                    type={album.type}
                   />
                 ))}
               </div>
@@ -148,6 +150,7 @@ export default function Music() {
                     title={ep.title}
                     album={ep.title}
                     year={ep.year}
+                    type={ep.type}
                   />
                 ))}
               </div>
@@ -168,6 +171,7 @@ export default function Music() {
                     appleMusicId={single.appleMusicId}
                     title={single.title}
                     year={single.year}
+                    type={single.type}
                   />
                 ))}
               </div>

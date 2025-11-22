@@ -31,60 +31,68 @@ export interface Track {
 export const discography: Album[] = [
   // Singles
   {
+    title: 'Paper Boat',
+    year: '2025',
+    type: 'single',
+    spotifyId: '1CkRBjL8QDdkDZ7upp7VeQ',
+    appleMusicId: '1849659961',
+  },
+  {
     title: 'November In Me',
     year: '2025',
     type: 'single',
     spotifyId: '2jXyVjp1TQtKS5RPGGVAAi',
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
+    appleMusicId: '1853851196',
   },
   {
     title: 'Ghosts On The Beach',
     year: '2025',
     type: 'single',
     spotifyId: '7acWx9s2xbpjljXe9ONo44',
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
+    appleMusicId: '1822857264',
+  },
+  {
+    title: 'Superglue',
+    year: '2024',
+    type: 'single',
+    spotifyId: '0zjPTyPqrRUsP2BfOsPiPO',
+    appleMusicId: '1764713972',
   },
   {
     title: 'Her',
     year: '2024',
     type: 'single',
     spotifyId: '0a609WapJPb8QxwPWsLuqA',
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
+    appleMusicId: '1809252170',
   },
   {
     title: 'Elevator Music',
     year: '2023',
     type: 'single',
     spotifyId: '6FUF3R9BKwdE1RLDT2ed9C',
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
+    appleMusicId: '1797871084',
   },
   {
     title: 'The Christmas Song',
     year: '2020',
     type: 'single',
-    // spotifyId: 'YOUR_SPOTIFY_TRACK_ID_HERE',
+    spotifyId: '6BkDqGkiDKFTqigtFWWB2c',
     // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
   },
   // Albums
   {
     title: 'Freefall',
     year: '2024',
-    type: 'album',
-    spotifyId: '4t25XOXcvDXecxERNjWigj', // Using track ID as album may not be available
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
-    tracks: [
-      { title: 'Freefall', spotifyId: '4t25XOXcvDXecxERNjWigj' },
-    ],
+    type: 'single',
+    spotifyId: '4t25XOXcvDXecxERNjWigj',
+    appleMusicId: '1745006721',
   },
   {
     title: 'Electric',
     year: '2023',
-    type: 'album',
-    // spotifyId: 'YOUR_SPOTIFY_ALBUM_ID_HERE',
-    // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
-    tracks: [
-      { title: 'Elevator Music', spotifyId: '6FUF3R9BKwdE1RLDT2ed9C' },
-    ],
+    type: 'single',
+    spotifyId: '33BnCw7qZfiE7zs6fczi1o',
+    appleMusicId: '1688796490',
   },
   {
     title: 'The Living Room',
@@ -96,12 +104,9 @@ export const discography: Album[] = [
   {
     title: 'Sunrise',
     year: '2018',
-    type: 'album',
-    spotifyId: '2nzrd4xmwFyKwwoURFEAuU', // Using track ID as album may not be available
+    type: 'single',
+    spotifyId: '2nzrd4xmwFyKwwoURFEAuU',
     // appleMusicId: 'YOUR_APPLE_MUSIC_ID_HERE',
-    tracks: [
-      { title: 'Sunrise', spotifyId: '2nzrd4xmwFyKwwoURFEAuU' },
-    ],
   },
 ];
 
