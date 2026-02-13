@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description: "Official website of Raymond Revel, singer-songwriter and producer based in Fort Worth, Texas. Listen to music, watch videos, view photos, and read the latest blog posts.",
   keywords: ["Raymond Revel", "music", "singer-songwriter", "producer", "Fort Worth", "Texas"],
   icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon.svg",
+    icon: '/icon',
+    apple: '/apple-icon',
   },
   openGraph: {
     title: "Raymond Revel - Singer-Songwriter & Producer",
