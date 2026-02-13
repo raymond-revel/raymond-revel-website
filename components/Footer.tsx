@@ -46,6 +46,11 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/links" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  Links
+                </Link>
+              </li>
             </ul>
           </div>
           

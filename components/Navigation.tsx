@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Photos', href: '/photos' },
   { name: 'Concerts', href: '/concerts' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Links', href: '/links' },
   { name: 'Lyrics', href: '/lyrics' },
 ];
 
